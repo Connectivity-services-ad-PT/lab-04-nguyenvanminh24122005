@@ -144,7 +144,9 @@ def health():
         "service": "analytics-integrated-service",
         "time": "2026-05-19T08:00:00Z"
     }
-
+@app.head("/health")
+def health_head():
+    return None
 
 @app.get("/telemetry")
 def get_telemetry(authorization: Optional[str] = Header(default=None)):
