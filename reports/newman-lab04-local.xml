@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="FIT4110 Lab03 - Analytics Contract Tests" tests="11" time="0.121">
+  <testsuite name="01_Functional / GET /health - service is alive" id="2530c5dc-3752-4c68-b25a-74a1c92e4cd4" timestamp="2026-05-26T16:56:27.551Z" tests="2" failures="0" errors="0" time="0.053">
+    <testcase name="Status code is 200" time="0.053" classname="01FunctionalGetHealthServiceIsAlive"/>
+    <testcase name="Response has integrated analytics service status" time="0.053" classname="01FunctionalGetHealthServiceIsAlive"/>
+  </testsuite>
+  <testsuite name="01_Functional / GET /telemetry - IoT telemetry backfill" id="389cbb43-cabf-4d23-be3c-15e0843deffc" timestamp="2026-05-26T16:56:27.551Z" tests="3" failures="0" errors="0" time="0.014">
+    <testcase name="Telemetry returns 200" time="0.014" classname="01FunctionalGetTelemetryIoTTelemetryBackfill"/>
+    <testcase name="Telemetry response has items" time="0.014" classname="01FunctionalGetTelemetryIoTTelemetryBackfill"/>
+    <testcase name="Telemetry item has Lab 2 event shape" time="0.014" classname="01FunctionalGetTelemetryIoTTelemetryBackfill"/>
+  </testsuite>
+  <testsuite name="01_Functional / GET /camera/motion - camera motion backfill" id="c86f2329-00b3-4f0b-9535-c52176907dcd" timestamp="2026-05-26T16:56:27.551Z" tests="2" failures="0" errors="0" time="0.004">
+    <testcase name="Camera motion returns 200" time="0.004" classname="01FunctionalGetCameraMotionCameraMotionBackfill"/>
+    <testcase name="Camera motion response has items" time="0.004" classname="01FunctionalGetCameraMotionCameraMotionBackfill"/>
+  </testsuite>
+  <testsuite name="01_Functional / GET /policy-decisions - policy KPI source" id="93d56b56-2dcb-4563-9dd9-83902c97feab" timestamp="2026-05-26T16:56:27.551Z" tests="2" failures="0" errors="0" time="0.005">
+    <testcase name="Policy decisions return 200" time="0.005" classname="01FunctionalGetPolicyDecisionsPolicyKpiSource"/>
+    <testcase name="Policy decisions response has items" time="0.005" classname="01FunctionalGetPolicyDecisionsPolicyKpiSource"/>
+  </testsuite>
+  <testsuite name="01_Functional / GET /access/logs - access traffic source" id="3371632e-ae83-4a4c-89a9-f691652c8089" timestamp="2026-05-26T16:56:27.551Z" tests="2" failures="0" errors="0" time="0.005">
+    <testcase name="Access logs return 200" time="0.005" classname="01FunctionalGetAccessLogsAccessTrafficSource"/>
+    <testcase name="Access logs response has items" time="0.005" classname="01FunctionalGetAccessLogsAccessTrafficSource"/>
+  </testsuite>
+  <testsuite name="03_Negative / GET /alerts/{alertId} - not found" id="560c0511-122b-4168-87e0-01c8687ea3b7" timestamp="2026-05-26T16:56:27.551Z" tests="2" failures="0" errors="0" time="0.009">
+    <testcase name="Unknown alert returns 404" time="0.009" classname="03NegativeGetAlertsAlertIdNotFound"/>
+    <testcase name="Not found response follows ProblemDetails" time="0.009" classname="03NegativeGetAlertsAlertIdNotFound"/>
+  </testsuite>
+  <testsuite name="03_Negative / POST /alerts - invalid payload" id="f9331a47-45bd-4d15-9ff4-a307023f43e0" timestamp="2026-05-26T16:56:27.551Z" tests="2" failures="0" errors="0" time="0.014">
+    <testcase name="Invalid alert payload returns client error" time="0.014" classname="03NegativePostAlertsInvalidPayload"/>
+    <testcase name="Invalid alert response follows ProblemDetails" time="0.014" classname="03NegativePostAlertsInvalidPayload"/>
+  </testsuite>
+  <testsuite name="04_Boundary_Reliability / GET /alerts/recent - limit boundary" id="f49c5edf-2386-485c-ace2-40043e0d7689" timestamp="2026-05-26T16:56:27.551Z" tests="2" failures="0" errors="0" time="0.005">
+    <testcase name="Recent alerts limit boundary is handled" time="0.005" classname="04BoundaryReliabilityGetAlertsRecentLimitBoundary"/>
+    <testcase name="Response time is below 1000ms" time="0.005" classname="04BoundaryReliabilityGetAlertsRecentLimitBoundary"/>
+  </testsuite>
+  <testsuite name="05_Consumer_side_Smoke / Multi-source smoke - integrated analytics events" id="f7a6e0b5-d3a2-4d79-92e8-0eb85c0775c6" timestamp="2026-05-26T16:56:27.551Z" tests="3" failures="0" errors="0" time="0.005">
+    <testcase name="Analytics integrated events return 200" time="0.005" classname="05ConsumerSideSmokeMultiSourceSmokeIntegratedAnalyticsEvents"/>
+    <testcase name="Integrated events response has items" time="0.005" classname="05ConsumerSideSmokeMultiSourceSmokeIntegratedAnalyticsEvents"/>
+    <testcase name="Integrated events can include multiple sources" time="0.005" classname="05ConsumerSideSmokeMultiSourceSmokeIntegratedAnalyticsEvents"/>
+  </testsuite>
+  <testsuite name="06_Local_only_NonFunctional / Local only - analytics response time" id="099d4317-e253-4b15-82ae-74473023d5de" timestamp="2026-05-26T16:56:27.551Z" tests="1" failures="0" errors="0" time="0.003">
+    <testcase name="Events response time is below 1000ms on local service" time="0.003" classname="06LocalOnlyNonFunctionalLocalOnlyAnalyticsResponseTime"/>
+  </testsuite>
+  <testsuite name="02_Auth / GET /events - unauthorized" id="380cdba9-8c78-4b1d-b472-67f7a2011f20" timestamp="2026-05-26T16:56:27.551Z" tests="2" failures="0" errors="0" time="0.004">
+    <testcase name="Unauthorized request returns client error" time="0.004" classname="02AuthGetEventsUnauthorized"/>
+    <testcase name="Unauthorized response follows ProblemDetails" time="0.004" classname="02AuthGetEventsUnauthorized"/>
+  </testsuite>
+</testsuites>
